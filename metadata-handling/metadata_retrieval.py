@@ -11,8 +11,8 @@ class MetadataCreator:
             self.metadata = {
                 "name": self.file_path.name,
                 "size_bytes": self.file_path.stat().st_size,
-                "creation_time": datetime.datetime.fromtimestamp(self.file_path.stat().st_ctime),
-                "modification_time": datetime.datetime.fromtimestamp(self.file_path.stat().st_mtime),
+                "creation_time": str(datetime.datetime.fromtimestamp(self.file_path.stat().st_ctime)),
+                "modification_time": str(datetime.datetime.fromtimestamp(self.file_path.stat().st_mtime)),
             }
             return self.metadata
         else:

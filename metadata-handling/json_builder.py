@@ -5,6 +5,6 @@ class JsonExporter:
         self.json_file = None
 
     def export_json(self):
-        self.json_file = {'file path': self.file_path, 'metadata': self.metadata}
+        self.json_file = {'file path': str(self.file_path), 'metadata': self.metadata}
         return self.json_file
 
