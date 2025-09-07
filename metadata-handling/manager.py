@@ -1,16 +1,14 @@
 from pathlib import Path
+from config.environments import KAFKA_ADDRESS
 from metadata_retrieval import MetadataCreator
 from json_builder import JsonExporter
 from utils.publisher import Producer
 
-TOPIC = "json_with_metadata"
-FOLDER_PATH = r"D:\Users\User\Desktop\podcasts"
-KAFKA_PATH = "localhost:9092"
 
 class Manager:
     def __init__(self,folder_path,topic):
         self.folder_path = folder_path
-        self.publisher = Producer(KAFKA_PATH)
+        self.publisher = Producer(KAFKA_ADDRESS)
         self.meta_creator = MetadataCreator
         self.json_build = JsonExporter
         self.topic = topic
@@ -24,6 +22,3 @@ class Manager:
             jso = self.json_build(item,metadata).export_json()
             print(jso)
             self.publisher.publish(jso,self.topic)
-
-M = Manager(FOLDER_PATH,TOPIC)
-M.run()
