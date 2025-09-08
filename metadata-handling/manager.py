@@ -1,7 +1,7 @@
 from pathlib import Path
 from config.environments import KAFKA_ADDRESS
 from metadata_retrieval import MetadataCreator
-from json_builder import JsonExporter
+from dict_builder import DictExporter
 from utils.publisher import Producer
 from utils.class_logger import Logger
 
@@ -10,7 +10,7 @@ class PublisherManager:
         self.folder_path = folder_path
         self.publisher = Producer(KAFKA_ADDRESS)
         self.meta_creator = MetadataCreator
-        self.json_build = JsonExporter
+        self.dict_build = DictExporter
         self.topic = topic
         self.logger = Logger.get_logger()
 
@@ -19,10 +19,10 @@ class PublisherManager:
             p = Path(self.folder_path)
             for item in p.iterdir():
                 metadata =  self.meta_creator(item).create_metadata()
-                self.logger.info(f"created metadata {metadata}")
-                json = self.json_build(item,metadata).export_json()
-                self.logger.info(f"created json {json}")
+                self.logger.info(f"manager created metadata {metadata}")
+                json = self.dict_build(item,metadata).export_dict()
+                self.logger.info(f"manager created json {json}")
                 self.publisher.publish(json,self.topic)
-                self.logger.info(f"published meta json to kafka")
+                self.logger.info(f"manager published meta json to kafka")
         except Exception as e:
             self.logger.error(f"an error occurred while sending metadata to Kafka - {e}")

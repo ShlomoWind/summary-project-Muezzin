@@ -1,4 +1,5 @@
-from mongo_inserter import MongoConnector,WavInserter
+from mongo_inserter import WavInserter
+from mongo_connector import MongoConnector
 from elasticsearch import Elasticsearch
 from create_unique_id import UniqueId
 from utils.consumer import Consumer
@@ -27,8 +28,10 @@ class ConsumerManager:
                 data_for_es["metadata"] = message.value["metadata"]
                 self.logger.info("manager create json to insert in es")
                 self.es.index(index=INDEX_NAME, document=data_for_es)
-                self.logger.info("inserted in es")
+                self.logger.info("manager inserted in es")
                 self.mongo_inserter.read_wav(message.value['file path'],uniq_id)
-                self.logger.info("inserted in mongo")
+                self.logger.info("manager inserted in mongo")
+            self.consumer.close()
+            self.logger.info("consumer closed!")
         except Exception as e:
             self.logger.error(f"an error occurred while retrieving the data and sending it to the databases - {e}")
