@@ -1,4 +1,4 @@
-from mongo_inserter import WavInserter
+from wav_to_binary import WavConverter
 from mongo_connector import MongoConnector
 from elasticsearch import Elasticsearch
 from create_unique_id import UniqueId
@@ -11,7 +11,7 @@ class ConsumerManager:
     def __init__(self,topic,address,mongo_url,db_name,coll_name,elastic):
         self.consumer = Consumer(topic,address).consumer
         self.mongo_connector = MongoConnector(mongo_url,db_name,coll_name)
-        self.mongo_inserter = WavInserter(self.mongo_connector)
+        self.mongo_inserter = WavConverter(self.mongo_connector)
         self.es = Elasticsearch(elastic)
         self.unique_id = UniqueId
         self.logger = Logger.get_logger()

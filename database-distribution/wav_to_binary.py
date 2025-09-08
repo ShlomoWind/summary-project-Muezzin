@@ -1,7 +1,7 @@
 from bson.binary import Binary
 from utils.class_logger import Logger
 
-class WavInserter:
+class WavConverter:
     def __init__(self,mongo_connection):
         self.conn = mongo_connection
         self.logger = Logger.get_logger()
