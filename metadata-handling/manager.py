@@ -5,7 +5,7 @@ from json_builder import JsonExporter
 from utils.publisher import Producer
 
 
-class Manager:
+class PublisherManager:
     def __init__(self,folder_path,topic):
         self.folder_path = folder_path
         self.publisher = Producer(KAFKA_ADDRESS)
