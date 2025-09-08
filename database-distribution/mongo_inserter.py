@@ -1,7 +1,6 @@
 from pymongo import MongoClient
 from bson.binary import Binary
 
-
 class MongoConnector:
     def __init__(self,url,db_name,collection_name):
         self.client = MongoClient(url)
@@ -20,5 +19,4 @@ class WavInserter:
                 "content_type": "audio/wav",
                 "wav_file": Binary(wav_data)
             }
-            result = self.conn.coll.insert_one(document)
-            print(f"Document inserted with ID: {result.inserted_id}")
+            self.conn.coll.insert_one(document)
