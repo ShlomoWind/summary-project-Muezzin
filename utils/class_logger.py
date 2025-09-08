@@ -7,7 +7,7 @@ class Logger:
     _logger = None
     @classmethod
     def get_logger(cls, name="my_logger", es_host=ELASTICSEARCH,
-index="logs_index", level=logging.DEBUG):
+index="logs_test", level=logging.DEBUG):
         if cls._logger:
             return cls._logger
         logger = logging.getLogger(name)

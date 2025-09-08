@@ -1,6 +1,6 @@
 import json
 from kafka import KafkaProducer
-from class_logger import Logger
+from utils.class_logger import Logger
 
 class Producer:
     def __init__(self,server_address):
