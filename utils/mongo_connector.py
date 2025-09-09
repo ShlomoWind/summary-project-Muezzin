@@ -1,5 +1,5 @@
 from pymongo import MongoClient
-from utils.src.class_logger import Logger
+from utils.class_logger import Logger
 
 class MongoConnector:
     def __init__(self,url,db_name,collection_name):

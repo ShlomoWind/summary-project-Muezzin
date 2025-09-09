@@ -1,6 +1,6 @@
 import json
 from kafka import KafkaConsumer
-from utils.src.class_logger import Logger
+from utils.class_logger import Logger
 
 
 class Consumer:

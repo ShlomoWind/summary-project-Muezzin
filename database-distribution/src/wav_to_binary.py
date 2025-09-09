@@ -1,5 +1,5 @@
 from bson.binary import Binary
-from utils.src.class_logger import Logger
+from utils.class_logger import Logger
 
 class WavConverter:
     def __init__(self,mongo_connection):

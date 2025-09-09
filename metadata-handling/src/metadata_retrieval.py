@@ -1,4 +1,4 @@
-from utils.src.class_logger import Logger
+from utils.class_logger import Logger
 from pathlib import Path
 import datetime
 

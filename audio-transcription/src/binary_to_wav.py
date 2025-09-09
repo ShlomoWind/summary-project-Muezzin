@@ -1,5 +1,5 @@
 import speech_recognition as sr
-from utils.src.class_logger import Logger
+from utils.class_logger import Logger
 
 class BinaryTranscript:
     def __init__(self,binary_data,unique_id):

@@ -2,8 +2,8 @@ from pathlib import Path
 from config.environments import KAFKA_ADDRESS
 from metadata_retrieval import MetadataCreator
 from dict_builder import DictExporter
-from utils.src.publisher import Producer
-from utils.src.class_logger import Logger
+from utils.publisher import Producer
+from utils.class_logger import Logger
 
 class PublisherManager:
     def __init__(self,folder_path,topic):
