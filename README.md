@@ -1,5 +1,5 @@
 #  summary-project-Muezzin
-
+## It's still in writing - don't treat it as such😜
 I decided to do the transcription logic only after saving in Mongo
 and perform a retrieval from Mongo and transcription,
 and then update the elastic
