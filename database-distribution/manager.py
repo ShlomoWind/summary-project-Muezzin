@@ -1,5 +1,5 @@
 from wav_to_binary import WavConverter
-from mongo_connector import MongoConnector
+from utils.mongo_connector import MongoConnector
 from elasticsearch import Elasticsearch
 from create_unique_id import UniqueId
 from utils.consumer import Consumer
