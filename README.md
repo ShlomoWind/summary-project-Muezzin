@@ -63,10 +63,10 @@ summary-project-Muazzin/
 
 ```mermaid
   graph TD;
-      podcasts file-->metadata handling;
-      metadata handling (dictionary with file path and metadata)-->kafka;
+      podcasts_file-->metadata_handling;
+      metadata_handling (dictionary_with_file_path_and_metadata)-->kafka;
       kafka-->elatic (metadata);
-      kafka-->mongo db (binary file of the podcast);
+      kafka-->mongo_db (binary_file_of_the_podcast);
 ```
 
 ---
