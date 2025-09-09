@@ -11,8 +11,7 @@ class Consumer:
         try:
             self.consumer = KafkaConsumer(self.topic,
                                       bootstrap_servers=[self.server_address],
-                                      value_deserializer=lambda v: json.loads(v.decode("utf-8")),
-                                      consumer_timeout_ms=1000)
+                                      value_deserializer=lambda v: json.loads(v.decode("utf-8")))
             self.logger.info("consumed data successfully")
         except Exception as e:
             self.logger.error(f"an error occurred while consumed data - {e}")

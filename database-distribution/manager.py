@@ -5,7 +5,7 @@ from create_unique_id import UniqueId
 from utils.consumer import Consumer
 from utils.class_logger import Logger
 
-INDEX_NAME = "test_the_data_with_loggs"
+INDEX_NAME = "morning_test2"
 
 class ConsumerManager:
     def __init__(self,topic,address,mongo_url,db_name,coll_name,elastic):
