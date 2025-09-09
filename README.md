@@ -62,11 +62,7 @@ summary-project-Muazzin/
 ## Project Flow
 
 ```mermaid
-  graph TD;
-      podcasts_file-->metadata_handling;
-      metadata_handling (dictionary_with_file_path_and_metadata)-->kafka;
-      kafka-->elatic (metadata);
-      kafka-->mongo_db (binary_file_of_the_podcast);
+ 
 ```
 
 ---

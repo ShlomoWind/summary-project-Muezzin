@@ -1,0 +1,5 @@
+from manager import ConsumerManager
+from config.environments import KAFKA_ADDRESS,FIRST_JSON_TOPIC,ELASTICSEARCH,MONGO_URL,MONGO_DB_NAME,COLLECTION_NAME
+
+if __name__ == "__main__":
+    ConsumerManager(FIRST_JSON_TOPIC,KAFKA_ADDRESS,MONGO_URL,MONGO_DB_NAME,COLLECTION_NAME,ELASTICSEARCH).run()
