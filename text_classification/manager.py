@@ -21,12 +21,15 @@ class PercentManager:
         self.is_dangers = None
 
     def run(self):
-        host_score,non_host_score = self.matcher(self.text,self.host_list,self.non_host_list).match_count()
-        self.percent = self.percentage(host_score,non_host_score,len(self.text)).percentage_calculator()
-        self.level = self.level_attach(self.percent).attach_by_percent()
-        if self.percent > 30:
-            self.is_dangers = True
-        else:
-            self.is_dangers = False
-        self.logger.info("the creation of message classification parameters has been completed successfully")
-        return self
+        try:
+            host_score,non_host_score = self.matcher(self.text,self.host_list,self.non_host_list).match_count()
+            self.percent = self.percentage(host_score,non_host_score,len(self.text)).percentage_calculator()
+            self.level = self.level_attach(self.percent).attach_by_percent()
+            if self.percent > 2.3:
+                self.is_dangers = True
+            else:
+                self.is_dangers = False
+            self.logger.info("the creation of message classification parameters has been completed successfully")
+            return self
+        except Exception as e:
+            self.logger.info(f"percent manager error: {e}")

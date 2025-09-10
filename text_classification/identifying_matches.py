@@ -11,15 +11,18 @@ class MatchCount:
 
 
     def match_count(self):
-        for word in self.hostile_list:
-            word = word.lower()
-            if word in self.text:
-                self.hostile_score += self.text.count(word)
-        self.hostile_score *= 2
+        try:
+            for word in self.hostile_list:
+                word = word.lower()
+                if word in self.text:
+                    self.hostile_score += self.text.count(word)
+            self.hostile_score *= 2
 
-        for word in self.non_hostile_list:
-            word = word.lower()
-            if word in self.text:
-                self.non_hostile_score += self.text.count(word)
-        self.logger.info("word count has ended")
-        return self.hostile_score,self.non_hostile_score
+            for word in self.non_hostile_list:
+                word = word.lower()
+                if word in self.text:
+                    self.non_hostile_score += self.text.count(word)
+            self.logger.info("word count has ended")
+            return self.hostile_score,self.non_hostile_score
+        except Exception as e:
+            self.logger.info(f"list matching count error: {e}")

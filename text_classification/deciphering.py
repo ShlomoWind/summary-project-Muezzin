@@ -9,7 +9,10 @@ class Decoder:
         self.logger = Logger.get_logger()
 
     def decoding_code(self):
-        to_bytes = base64.b64decode(self.code)
-        result = to_bytes.decode("utf-8")
-        self.logger.info("decoding code successfully")
-        return result.split(',')
+        try:
+            to_bytes = base64.b64decode(self.code)
+            result = to_bytes.decode("utf-8")
+            self.logger.info("decoding code successfully")
+            return result.split(',')
+        except Exception as e:
+            self.logger.info(f"decoding error: {e}")

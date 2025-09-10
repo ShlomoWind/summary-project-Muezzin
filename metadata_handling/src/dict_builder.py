@@ -8,6 +8,9 @@ class DictExporter:
         self.json_file = None
 
     def export_dict(self):
-        self.json_file = {'file path': str(self.file_path), 'metadata': self.metadata}
-        self.logger.info("created the json file")
-        return self.json_file
+        try:
+            self.json_file = {'file path': str(self.file_path), 'metadata': self.metadata}
+            self.logger.info("created the json file")
+            return self.json_file
+        except Exception as e:
+            self.logger.info(f"dict creation error: {e}")

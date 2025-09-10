@@ -7,11 +7,14 @@ class AttachLevel:
         self.logger = Logger.get_logger()
 
     def attach_by_percent(self):
-        if self.percent > 30:
-            self.level = "high"
-        elif self.percent > 10:
-            self.level = "medium"
-        else:
-            self.level = "none"
-        self.logger.info("created a level")
-        return self.level
+        try:
+            if self.percent > 2.3:
+                self.level = "high"
+            elif self.percent > 1:
+                self.level = "medium"
+            else:
+                self.level = "none"
+            self.logger.info("created a level")
+            return self.level
+        except Exception as e:
+            self.logger.info(f"calculate level error: {e}")
