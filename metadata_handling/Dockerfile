@@ -5,7 +5,9 @@ WORKDIR /app
 COPY requirements.txt .
 
 RUN pip install --no-cache-dir -r requirements.txt
+COPY ./src app/metadata_handling/src
+COPY ../utils app/utils
 
-COPY metadata_handling/src app/metadata_handling/src
+EXPOSE 8000
 
-CMD ["python", "main.py"]
+CMD ["python", "metadata_handling/src/main.py"]

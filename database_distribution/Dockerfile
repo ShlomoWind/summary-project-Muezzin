@@ -1,4 +1,15 @@
-FROM ubuntu:latest
-LABEL authors="User"
+FROM python:3.11-slim
 
-ENTRYPOINT ["top", "-b"]
+WORKDIR /app
+
+COPY requirements.txt .
+
+RUN pip install --no-cache-dir -r requirements.txt
+
+COPY
+COPY config app/config
+COPY utils app/utils
+
+EXPOSE 8000
+
+CMD ["python", "main.py"]
