@@ -3,7 +3,7 @@ class Percentage:
         self.hostile_score = hostile_score
         self.non_hostile_score = non_hostile_score
         self.len_of_text = len_of_text
-        self.risk_percent = None
+        self.risk_percent = 0
 
     def percentage_calculator(self):
         total_score = self.hostile_score + self.non_hostile_score
