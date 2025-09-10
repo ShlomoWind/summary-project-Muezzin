@@ -40,7 +40,6 @@ class UpdateManager:
                             level_field_name:level,
                             thresh_field_name:is_dangers}
                 })
-                # self.es_update(result['unique_id'],result['transcription'],percent,level,is_dangers).update_by_query()
                 self.logger.info("update elastic \n===============")
         except Exception as e:
             self.logger.error(f"an error occurred while updating elastic - {e}")

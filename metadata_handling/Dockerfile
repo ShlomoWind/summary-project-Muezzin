@@ -1,4 +1,11 @@
-FROM ubuntu:latest
-LABEL authors="User"
+FROM python:3.11-slim
 
-ENTRYPOINT ["top", "-b"]
+WORKDIR /app
+
+COPY requirements.txt .
+
+RUN pip install --no-cache-dir -r requirements.txt
+
+COPY metadata_handling/src app/metadata_handling/src
+
+CMD ["python", "main.py"]
